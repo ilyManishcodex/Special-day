@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Payal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Curtains Stage -->
+    <div id="curtainStage" class="curtain-container">
+        <div class="curtain curtain-left" id="curtainLeft"></div>
+        <div class="curtain curtain-right" id="curtainRight"></div>
+        <div id="introButtons" class="z-index-top"
+            style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+            <img src="you.gif" id="peekingCat" class="cat-img bounce-in" alt="Cute Sitting Cat">
+            <button class="primary-btn pulse-anim" id="forMyBtn">For my.. 💝</button>
+            <div id="setupStageWrapper" class="hidden"
+                style="position: relative; display: flex; flex-direction: column; align-items: center;">
+                <img src="bubu.gif" id="peekingBear" class="side-bear-img" alt="Cute Bubu">
+                <button class="primary-btn pulse-anim" id="setupStageBtn">Setup Stage 🎭</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Background Hearts -->
+    <div class="heart-bg" id="heartBg"></div>
+
+    <!-- Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Step 1: Initial Button -->
+        <div id="step1" class="step active">
+            <img src="hbd.gif" alt="Happy Birthday" class="gift-img bounce-in" style="max-width: 180px;">
+            <button class="primary-btn pulse-anim" id="forYouBtn">Today is special day 💖</button>
+        </div>
+
+        <!-- Step 2 & 3: Teddy Bear & Letter -->
+        <div id="step2" class="step hidden">
+            <div class="teddy-container" id="teddyContainer">
+                <img src="teddy.png" alt="Cute Teddy Bear" class="floating-teddy">
+                <!-- The Letter / Message that appears when clicking teddy or automatically -->
+                <div class="letter glass-panel hidden" id="letterPanel">
+                    <h1 class="message-text">Happy Birthday My Sweetest Payal! 💖</h1>
+                    <p style="font-size: 1.2rem; margin-top: 10px; font-weight: 500;">You bring so much light and joy
+                        into my life. ✨ Every moment with you is a treasure. 🧸</p>
+                    <p class="signature">With lots of love, <br>-- Manish 😘</p>
+                </div>
+            </div>
+            <!-- Flying kiss emoji generated via JS -->
+            <div id="kissContainer"></div>
+
+            <button class="primary-btn hidden fade-in" id="celebrationBtn" style="margin-top: 30px;">Celebration
+                🎉</button>
+        </div>
+
+        <!-- Step 4 & 5: Cake and Cut -->
+        <div id="step4" class="step hidden">
+            <div class="cake-container" id="cakeContainer">
+                <img src="cake.png" alt="Birthday Cake" class="cake-img bounce-in" id="wholeCake">
+                <img src="cake.png" alt="Birthday Cake Left" class="cake-img cake-left hidden" id="leftCake">
+                <img src="cake.png" alt="Birthday Cake Right" class="cake-img cake-right hidden" id="rightCake">
+                <div id="knife" class="knife hidden">🔪</div>
+            </div>
+            <button class="primary-btn mt-2 hidden" id="cutCakeBtn">Cut Cake 🔪</button>
+            <img src="gift.gif" alt="Gift Box Preview" class="gift-img hidden bounce-in mt-2" id="giftBoxPreview"
+                style="max-width: 180px;">
+            <img src="good-afternoon.gif" alt="Good Afternoon" id="goodAfternoonGif" class="gif-above-btn hidden mt-2"
+                style="max-width: 160px; margin-bottom: 12px;">
+            <div id="specialPartyStage" class="prompt-panel hidden mt-2">
+                <img src="happy.gif" alt="Happy" class="happy-gif" id="happyGif">
+                <p class="prompt-text">Mujhe special party doge na..🤤</p>
+                <div class="prompt-actions">
+                    <button class="primary-btn" id="specialPartyYesBtn">Yes</button>
+                    <button class="primary-btn" id="specialPartyNoBtn">No</button>
+                </div>
+            </div>
+
+            <div id="specialPartyNoStage" class="prompt-panel hidden mt-2">
+                <img src="serious.gif" alt="Serious" class="serious-gif" id="seriousGif">
+                <p class="prompt-text">Fir soch lo</p>
+                <p class="prompt-text" style="font-size: 1.1rem; margin-top: 8px;">I give you one more chance</p>
+                <button class="primary-btn" id="specialPartyConfirmBtn">Ok</button>
+            </div>
+            <button class="primary-btn hidden mt-2 fade-in" id="aapkiTareefBtnStep4">Aapki Tareef 🌟</button>
+            <button class="primary-btn hidden mt-2 fade-in" id="giftBoxBtn">Gift Box 🎁</button>
+        </div>
+
+        <!-- Step 6 & 7: Gift Box and Wishes -->
+        <div id="step6" class="step hidden">
+            <div class="gift-container" id="giftContainer">
+                <img src="gift.png" alt="Gift Box" class="gift-img bounce-in" id="giftImg">
+            </div>
+            <div class="wishes-panel glass-panel hidden" id="wishesPanel">
+                <h2 class="wishes-title">Happy Birthday My Dearest Payal! 🎂🥳💖</h2>
+                <p class="wishes-text">May God bless you with infinite happiness, boundless success, and perfect health!
+                    🙏✨<br><br>Wishing you a magical day filled with unconditional love, beautiful smiles, and all your
+                    favorite things. You are the most amazing, kind-hearted, and gorgeous person in this universe, and
+                    you truly deserve the whole wide world and beyond! 🌍💫<br><br>Keep shining like the beautiful star
+                    you are! 🌟 Love you to the moon and back! 🌙❤️</p>
+                <div class="final-message mt-2">Have the most beautiful day ahead! 🌸🥰<br><span>Forever Yours, Manish
+                        💝</span></div>
+            </div>
+            <button class="primary-btn mt-2 hidden" id="specialBtn">For My Special 🎈</button>
+            <button class="primary-btn mt-2 hidden" id="aapkiTareefBtn">Aapki Tareef 🌟</button>
+            <div id="sunoWrapper" class="hidden" style="display:flex;flex-direction:column;align-items:center;">
+                <img src="hehehe-lol.gif" alt="Hehe" id="heheheGif" class="hidden"
+                    style="max-width:120px;margin-bottom:8px;">
+                <div id="sunoHint" class="click-hint mt-2 hidden">apna kaam karo aye badi tareef sunne wali batmij
+                    se...😜
+                </div>
+                <button class="primary-btn mt-2 hidden" id="sunoBtn">Suno 📣</button>
+            </div>
+        </div>
+
+        <!-- Praise Step: shown after Catch Me -->
+        <div id="stepPraise" class="step hidden">
+            <div class="praise-panel glass-panel" id="praisePanel"
+                style="text-align:center; padding:24px; border-radius:22px; background:rgba(255,255,255,0.96); box-shadow:0 18px 40px rgba(0,0,0,0.12); border:1px solid rgba(255,160,180,0.45);">
+                <img src="hehehe-lol.gif" alt="Hehe" id="praiseTopGif"
+                    style="max-width:120px; display:block; margin:0 auto 12px;">
+                <div id="praiseText" style="font-size:1.25rem; margin-bottom:16px; color:#c71585; font-weight:700;">chalo chalo apna kaam karo aye badi tareef sunne wali batmij..😜</div>
+                <div id="praiseLong"
+                    style="display:none; max-width:620px; margin:0 auto; text-align:center; font-size:1.05rem; line-height:1.7; color:#4d1f52;">
+                    <h3 style="font-size: 1.5rem; color: #c71585; margin-bottom: 16px;">🗣️ tum kabhi mere tareef nahi karte</h3>
+                    jo jee bhar dekhne beth jaye use toh shaam kya ek umare bhi kaam lagi hai 🌅
+                    <br>vo itni khoobsurat hai uske age mujhe duniya ki har khubsurati bhram lagti hai 💫
+
+                    <br>✨😍
+                </div>
+                <button class="primary-btn mt-2" id="praiseContinueBtn">Read More 💕</button>
+            </div>
+        </div>
+
+        <div id="progressHint" class="click-hint mt-2">Step 1 of 5: Let's begin! ✨</div>
+    </div>
+
+    <!-- Audio Player -->
+    <audio id="birthdaySong" src="paresh pahuja_ Dooron Dooron.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
