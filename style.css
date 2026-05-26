@@ -21,6 +21,7 @@ body {
     color: var(--text-color);
     overflow: hidden; /* Keep it constrained to one screen */
     height: 100vh;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -603,4 +604,129 @@ body {
     white-space: nowrap;
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        width: 95%;
+        max-width: 95%;
+        max-height: 90dvh;
+        overflow-y: auto;
+        border-radius: 20px;
+    }
+
+    /* Custom scrollbar for mobile container */
+    .container::-webkit-scrollbar {
+        width: 6px;
+    }
+    .container::-webkit-scrollbar-thumb {
+        background: rgba(255, 105, 180, 0.4);
+        border-radius: 10px;
+    }
+
+    .primary-btn {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        width: 90%;
+        max-width: 300px;
+        white-space: normal;
+    }
+
+    .catch-me-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .glass-panel, .wishes-panel, .prompt-panel {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .message-text {
+        font-size: 1.8rem;
+    }
+
+    .wishes-title {
+        font-size: 1.6rem;
+    }
+
+    .wishes-text {
+        font-size: 1rem;
+    }
+    
+    .final-message {
+        font-size: 1.1rem;
+    }
+    
+    .final-message span {
+        font-size: 1.3rem;
+    }
+
+    .floating-teddy, .cake-img, .gift-img {
+        max-width: 150px;
+    }
+
+    .knife {
+        font-size: 3rem;
+        top: -30px;
+    }
+
+    .thank-you-toast {
+        font-size: 1rem;
+        padding: 10px 15px;
+        width: 90%;
+        text-align: center;
+    }
+
+    .prompt-text {
+        font-size: 1.1rem;
+    }
+
+    #praisePanel {
+        padding: 15px !important;
+    }
+
+    #praiseText {
+        font-size: 1.1rem !important;
+    }
+
+    #praiseLong {
+        font-size: 0.95rem !important;
+    }
+
+    #praiseLong h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .cat-img, .side-bear-img, .happy-gif, .serious-gif {
+        max-width: 80px;
+    }
+    
+    .big-heart {
+        font-size: 3rem !important;
+    }
+    
+    .big-fly-kiss {
+        font-size: 4rem !important;
+    }
+    
+    .curtain {
+        box-shadow: none;
+    }
+
+    .large-balloon {
+        font-size: calc(3rem + 2vw) !important;
+    }
+
+    .balloon {
+        font-size: calc(2rem + 1vw) !important;
+    }
+
+    .nickname-bubble {
+        font-size: 1.2rem !important;
+        padding: 10px 20px;
+    }
+}
 
